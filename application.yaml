@@ -1,0 +1,12 @@
+database:
+  host: 192.168.243.132
+  port: 3306
+  user: root
+  pwd: 1234
+  dbName: pld
+
+server:
+## 若port不设置值，默认为8188，这个值必须
+  port: 8188
+##应用的访问的根目录
+  context-path: /dsp
