@@ -34,7 +34,6 @@ func (*userService) GetInfo(name string) entity.User {
 }
 
 func (*userService) ListUsers() []entity.User {
-	panic("implement me")
 
 	user1 :=entity.User{Name:"dxc",Age:30,Code:"203462",Address:"回龙观"}
 	user2:=entity.User{Name:"dxc",Age:30,Code:"203462",Address:"回龙观"}
