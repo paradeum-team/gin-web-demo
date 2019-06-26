@@ -17,5 +17,5 @@
 lxcfs-webhook
 */logs/
 */package-lock.json
-go.mod
-go.sum
+#go.mod
+#go.sum
