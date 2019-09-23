@@ -38,7 +38,7 @@ func Configure(r *bootstrap.Bootstrapper) {
 	address := fmt.Sprintf("localhost:%d", pldConf.Server.Port)
 	docs.SwaggerInfo.Host = address
 	docs.SwaggerInfo.BasePath = prefix
-	rootRouter.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	rootRouter.GET("/api/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 }
 
 /**

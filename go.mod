@@ -11,6 +11,9 @@ require (
 	github.com/olebedev/config v0.0.0-20190528211619-364964f3a8e4 // indirect
 	github.com/swaggo/gin-swagger v1.1.0
 	github.com/swaggo/swag v1.5.0
+	golang.org/x/tools v0.0.0-20190322203728-c1a832b0ad89
 )
 
 replace github.com/ugorji/go v1.1.4 => github.com/ugorji/go/codec v0.0.0-20190204201341-e444a5086c43
+
+replace github.com/gin-gonic/gin v1.4.0 => github.com/paradeum-team/gin v1.4.4
