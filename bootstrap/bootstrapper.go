@@ -3,6 +3,7 @@ package bootstrap
 import (
 	"fmt"
 	"gin-web-demo/common/utils"
+	"gin-web-demo/middlewares"
 	"github.com/gin-gonic/gin"
 	"time"
 )
@@ -59,6 +60,8 @@ func (b *Bootstrapper) Bootstrap() *Bootstrapper {
 		}))
 	}
 	b.Use(gin.Recovery())
+	b.Use(middlewares.Cors())
+	b.Use(middlewares.Authentication())
 	plogger.NewInstance().GetLogger().SetLevel("info")//业务日志级别--可用于controller，service，dao 等
 
 	return b
