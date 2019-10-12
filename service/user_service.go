@@ -2,7 +2,7 @@ package service
 
 import (
 	"fmt"
-	"gin-web-demo/common/utils"
+	"gin-web-demo/common/plogger"
 	"gin-web-demo/entity"
 )
 

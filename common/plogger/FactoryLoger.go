@@ -29,7 +29,7 @@ func NewInstance() *PldLogger {
 	//check base log dir .if not exits then create .
 	createAfsLogDir(baseLogPath)
 
-	logFileName := "rn_" + currentDate + ".log"
+	logFileName := "sys_" + currentDate + ".log"
 	logFilePath := filepath.Join(baseLogPath, logFileName)
 	f, err := os.OpenFile(logFilePath, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {

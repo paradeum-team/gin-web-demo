@@ -2,7 +2,7 @@ package bootstrap
 
 import (
 	"fmt"
-	"gin-web-demo/common/utils"
+	"gin-web-demo/common/plogger"
 	"gin-web-demo/middlewares"
 	"github.com/gin-gonic/gin"
 	"time"

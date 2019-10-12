@@ -16,6 +16,7 @@
 /logs
 lxcfs-webhook
 */logs/
+data/
 */package-lock.json
 #go.mod
 #go.sum
