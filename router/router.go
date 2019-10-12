@@ -3,6 +3,7 @@ package router
 import (
 	"fmt"
 	"gin-web-demo/bootstrap"
+	"gin-web-demo/common/utils"
 	pldconf "gin-web-demo/config"
 	api "gin-web-demo/controller"
 	"gin-web-demo/docs"
@@ -32,13 +33,14 @@ func Configure(r *bootstrap.Bootstrapper) {
 
 	// programatically set swagger info
 	// programatically set swagger info
-	docs.SwaggerInfo.Title = "PLD:ONLINE API"
-	docs.SwaggerInfo.Description = "This is a pld server online restfull api ."
+	docs.SwaggerInfo.Title = "demo-api:ONLINE API"
+	docs.SwaggerInfo.Description = "This is Demo server online restFull api ."
 	docs.SwaggerInfo.Version = "1.0"
-	address := fmt.Sprintf("localhost:%d", pldConf.Server.Port)
+	ipHost :=utils.GetLocalHostIps()[0]
+	address := fmt.Sprintf("%s:%d",ipHost, pldConf.Server.Port)
 	docs.SwaggerInfo.Host = address
 	docs.SwaggerInfo.BasePath = prefix
-	rootRouter.GET("/api/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	rootRouter.GET("/api/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 }
 
 /**

@@ -16,6 +16,8 @@ package config
 type WebServer struct{
 	Port int `profile:"port" profileDefault:"8188" `
 	ContextPath string `profile:"context-path" `
+	DataPath string `profile:"data-path" `
+	ProxyModel bool `profile:"proxy-model" profileDefault:"false"`
 }
 
 

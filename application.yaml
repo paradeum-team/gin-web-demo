@@ -10,3 +10,5 @@ server:
   port: 8188
 ##应用的访问的根目录
   context-path: /dsp
+  data-path: ./data/
+  proxy-model: false
