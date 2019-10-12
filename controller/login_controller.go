@@ -11,6 +11,7 @@ import (
 	"net/http"
 )
 
+// @Tags demo-user-api
 // @Summary user login with username and pwd
 // @Description user login  with username and pwd
 // @Accept  json
@@ -43,7 +44,7 @@ func Login(c *gin.Context) {
 	}
 }
 
-// User   godoc
+// @Tags demo-user-api
 // @Summary find user by name
 // @Description find user  by name
 // @Accept  json
@@ -62,7 +63,7 @@ func GetUserByName(c *gin.Context) {
 	//app.NewResponse(c, http.StatusOK, e.SUCCESS, user)
 }
 
-
+// @Tags demo-user-api
 // @Summary list all users
 // @Description list all users
 // @Accept  json
@@ -74,7 +75,7 @@ func ListUsers(c *gin.Context) {
 	app.NewResponse(c,http.StatusOK,e.SUCCESS,userList)
 }
 
-// User login godoc
+// @Tags demo-user-api
 // @Summary  router 的另一种写法
 // @Description 测试数据：router 的另一中写法
 // @Accept  json
@@ -90,7 +91,7 @@ func GetTestUserData(c *gin.Context) {
 
 
 
-// User login godoc
+// @Tags demo-user-api
 // @Summary  Basic auth 使用方法
 // @Description 在header 头增加 ["Authorization":"Basic Zm9vOmJhcg=="],["Authorization":"Basic YWRtaW46cGFzc3dvcmQ="]
 // @Accept  json

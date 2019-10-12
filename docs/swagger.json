@@ -19,6 +19,9 @@
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "demo-user-api"
+                ],
                 "summary": "Basic auth 使用方法",
                 "responses": {
                     "200": {
@@ -39,6 +42,9 @@
                 ],
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "demo-user-api"
                 ],
                 "summary": "user login with username and pwd",
                 "parameters": [
@@ -87,6 +93,9 @@
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "demo-user-api"
+                ],
                 "summary": "list all users",
                 "responses": {
                     "200": {
@@ -107,6 +116,9 @@
                 ],
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "demo-user-api"
                 ],
                 "summary": "find user by name",
                 "parameters": [
@@ -137,6 +149,9 @@
                 ],
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "demo-user-api"
                 ],
                 "summary": "router 的另一种写法",
                 "responses": {

@@ -53,6 +53,8 @@ paths:
             $ref: '#/definitions/app.Response'
             type: object
       summary: Basic auth 使用方法
+      tags:
+      - demo-user-api
   /v1/login:
     post:
       consumes:
@@ -85,6 +87,8 @@ paths:
             $ref: '#/definitions/app.Response'
             type: object
       summary: user login with username and pwd
+      tags:
+      - demo-user-api
   /v1/users:
     get:
       consumes:
@@ -99,6 +103,8 @@ paths:
             $ref: '#/definitions/app.Response'
             type: object
       summary: list all users
+      tags:
+      - demo-user-api
   /v1/users/{name}:
     get:
       consumes:
@@ -119,6 +125,8 @@ paths:
             $ref: '#/definitions/entity.User'
             type: object
       summary: find user by name
+      tags:
+      - demo-user-api
   /v2/submit:
     get:
       consumes:
@@ -133,4 +141,6 @@ paths:
             $ref: '#/definitions/entity.User'
             type: object
       summary: router 的另一种写法
+      tags:
+      - demo-user-api
 swagger: "2.0"
