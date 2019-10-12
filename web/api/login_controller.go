@@ -1,4 +1,4 @@
-package controller
+package api
 
 import (
 	"gin-web-demo/common/app"

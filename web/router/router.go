@@ -5,7 +5,7 @@ import (
 	"gin-web-demo/bootstrap"
 	"gin-web-demo/common/utils"
 	pldconf "gin-web-demo/config"
-	api "gin-web-demo/controller"
+	"gin-web-demo/web/api"
 	"gin-web-demo/docs"
 	"github.com/gin-gonic/gin"
 	"github.com/swaggo/gin-swagger"

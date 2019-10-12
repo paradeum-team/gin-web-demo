@@ -2,7 +2,7 @@ package main
 
 import (
 	"gin-web-demo/bootstrap"
-	"gin-web-demo/router"
+	"gin-web-demo/web/router"
 
 	"fmt"
 	pldconf "gin-web-demo/config"
