@@ -1,12 +1,10 @@
 package router
 
 import (
-	"fmt"
 	"gin-web-demo/bootstrap"
-	"gin-web-demo/common/utils"
 	pldconf "gin-web-demo/config"
-	"gin-web-demo/web/api"
 	"gin-web-demo/docs"
+	"gin-web-demo/web/api"
 	"github.com/gin-gonic/gin"
 	"github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
@@ -36,10 +34,13 @@ func Configure(r *bootstrap.Bootstrapper) {
 	docs.SwaggerInfo.Title = "demo-api:ONLINE API"
 	docs.SwaggerInfo.Description = "This is Demo server online restFull api ."
 	docs.SwaggerInfo.Version = "1.0"
+	/**
+	去掉设定的 baseUrl，swagger 也能够顺利的获取到ip，端口
 	ipHost :=utils.GetLocalHostIps()[0]
 	address := fmt.Sprintf("%s:%d",ipHost, pldConf.Server.Port)
 	docs.SwaggerInfo.Host = address
 	docs.SwaggerInfo.BasePath = prefix
+	**/
 	rootRouter.GET("/api/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 }
 

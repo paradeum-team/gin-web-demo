@@ -15,6 +15,8 @@ func newApp() *bootstrap.Bootstrapper {
 	return app
 }
 
+//增加项目地址
+// @termsOfService https://github.com/paradeum-team/gin-web-demo
 func main() {
 	app := newApp()
 	//读取配置文件，获取监听端口
