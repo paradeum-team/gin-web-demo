@@ -1,0 +1,5 @@
+
+CGO_ENABLED=0 GOARCH=amd64  GOOS=linux go build -a -v -installsuffix cgo -o bin/gin-web-demo .
+
+
+#docker build --no-cache -t registry.com/demo/gin-web-demo:v0.0.1 .
