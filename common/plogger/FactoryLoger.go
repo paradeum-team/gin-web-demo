@@ -1,9 +1,9 @@
 package plogger
 
 import (
+	"fmt"
 	"gin-web-demo/common/dict"
 	"gin-web-demo/common/utils"
-	"fmt"
 	pldconf "gin-web-demo/config"
 	"github.com/kataras/golog"
 	"log"
@@ -19,16 +19,16 @@ type PldLogger struct {
 var pldLoggerInstance *PldLogger
 
 func NewInstance() *PldLogger {
-	currentDate := utils.GetCurrentDate() //当前的8位长度的日期
+	currentDate := utils.GetCurrentDate() //当前的8位长度的日期:20060102
 	pldLoggerInstance = &PldLogger{
 		logger:      golog.Default,
 		currentDate: currentDate,
 	}
 
-	baseLogPath := filepath.Join(pldconf.AppConfig.Server.DataPath, dict.LOG_FOLDER)
+	baseLogPath := filepath.Join(pldconf.AppConfig.Server.DataPath, dict.LogDir)
 	//check base log dir .if not exits then create .
 	createAfsLogDir(baseLogPath)
-
+	pldLoggerInstance.logger.TimeFormat = dict.SysTimeFmt
 	logFileName := "sys_" + currentDate + ".log"
 	logFilePath := filepath.Join(baseLogPath, logFileName)
 	f, err := os.OpenFile(logFilePath, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
@@ -66,33 +66,3 @@ func createAfsLogDir(baseLogPath string) {
 	}
 
 }
-
-/**
-var loggerFactoryInstance *loggerFactory
-
-type loggerFactory struct {
-	logger *golog.Logger
-}
-
-func NewInstance() *loggerFactory {
-	loggerFactoryInstance=&loggerFactory{
-		logger:golog.Default,
-	}
-	baseLogPath :=filepath.Join(pldconf.AppConfig.Server.APIDataFolder,dict.RN_LOG_FOLDER)
-	//check base log dir .if not exits then create .
-	createAfsLogDir(baseLogPath)
-
-	logFileName :="rn_" + time.Now().Format("20060102150405")[:8] + ".log"
-	logFilePath := filepath.Join(baseLogPath,logFileName)
-	f, err := os.OpenFile(logFilePath, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
-	if err != nil {
-
-		log.Printf("ERROR: %s\n", fmt.Sprintf("%s append|create failed:%v", logFilePath, err))
-		return nil
-	}
-
-	loggerFactoryInstance.GetLogger().SetOutput(os.Stdout)
-	loggerFactoryInstance.GetLogger().AddOutput(f)
-	return loggerFactoryInstance
-}
-**/
