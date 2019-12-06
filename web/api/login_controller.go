@@ -4,6 +4,7 @@ import (
 	"gin-web-demo/common/app"
 	"gin-web-demo/common/e"
 	"gin-web-demo/common/plogger"
+	"gin-web-demo/common/utils"
 	"gin-web-demo/service"
 	"gin-web-demo/vo"
 	"github.com/gin-gonic/gin"
@@ -29,7 +30,8 @@ func Login(c *gin.Context) {
 	// in the HTTP stream and return a 400 error. If you want custom error
 	// handling you should use: c.ParseBody(interface{}) error
 	log.Println("come here 123")
-
+	//
+	utils.Open()
 	if err := c.ShouldBindJSON(&json); err == nil {
 		if json.User == "pld" && json.Password == "pld" {
 			app.NewResponse(c, http.StatusOK, e.SUCCESS, gin.H{"status": "you are logged in", "ext": "ext345"})
