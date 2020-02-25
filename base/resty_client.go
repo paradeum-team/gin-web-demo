@@ -1,8 +1,11 @@
 package base
 
 import (
+	"bytes"
 	"fmt"
 	"github.com/go-resty/resty"
+	"io/ioutil"
+	"net"
 	"time"
 )
 
@@ -36,4 +39,25 @@ func RestyPost(url string,data interface{} ,token string) ([]byte, error) {
 	fmt.Printf("body=%s \n", string(body))
 
 	return body, nil
+}
+
+func RestyPostForm(filename string ,filePath string,formData map[string]string,url string  )(scode int,data []byte,err error){
+
+	fileb, _ := ioutil.ReadFile(filePath)
+
+	resp, err := resty.SetTimeout(time.Duration(60)*time.Second).R().SetFileReader("file", filename, bytes.NewReader(fileb)).
+		SetFormData(formData).
+		Post(url)
+
+	if err != nil {
+		if perr, ok := err.(net.Error); ok && perr.Timeout() {
+			fmt.Printf("connection timeout exception  ...")
+		}else{
+			fmt.Printf("connection exception ...http 500 ")
+
+		}
+	}
+
+	return resp.StatusCode(),resp.Body(),err
+
 }
