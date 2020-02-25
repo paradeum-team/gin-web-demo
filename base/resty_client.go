@@ -57,7 +57,7 @@ func RestyPostForm(filename string ,filePath string,formData map[string]string,u
 
 		}
 	}
-
+	defer resp.RawResponse.Body.Close()
 	return resp.StatusCode(),resp.Body(),err
 
 }
