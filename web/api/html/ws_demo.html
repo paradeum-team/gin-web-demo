@@ -1,0 +1,33 @@
+<html>
+	<header>
+		<title>ws-test</title>
+	</header>
+	<body>
+			<h1>ws-test</h1>
+
+			<hr />
+	</body>
+	<script type="text/javascript">
+var ws = new WebSocket("ws://localhost:8188/dsp/ws/ping");  
+//连接打开时触发 
+ws.onopen = function(evt) {  
+    console.log("Connection open ...");  
+    //ws.send("Hello WebSockets!");  
+    for (i=0;i<10;i++){
+ 		ws.send("ping");
+ 	}
+};  
+//接收到消息时触发  
+ws.onmessage = function(evt) {  
+    console.log("Received Message: " + evt.data);  
+};  
+//连接关闭时触发  
+ws.onclose = function(evt) {  
+    console.log("Connection closed.");  
+};  
+ 
+ 
+ 
+
+	</script>
+</html>

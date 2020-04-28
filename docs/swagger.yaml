@@ -35,6 +35,7 @@ info:
   contact: {}
   description: '{{.Description}}'
   license: {}
+  termsOfService: https://github.com/paradeum-team/gin-web-demo
   title: '{{.Title}}'
   version: '{{.Version}}'
 paths:
@@ -143,4 +144,20 @@ paths:
       summary: router 的另一种写法
       tags:
       - demo-user-api
+  /ws/ping:
+    get:
+      consumes:
+      - application/json
+      description: websocket 用法
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/app.Response'
+            type: object
+      summary: use websocket
+      tags:
+      - ws-ping-pong
 swagger: "2.0"

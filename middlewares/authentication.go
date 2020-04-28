@@ -27,7 +27,7 @@ func Authentication() gin.HandlerFunc {
 
 		hasPermission := false
 		//把不需要验证的，都过滤掉。
-		if strings.Contains(uri, "/api/")||strings.Contains(router, "/api:any")  || !strings.HasPrefix(router, "/dsp") || strings.Contains(router, "/v1/login") {
+		if strings.Contains(uri, "/api/")||strings.Contains(router, "/api:any")  || !strings.HasPrefix(router, "/dsp") || strings.Contains(router, "/v1/login")|| strings.Contains(router, "/ws/ping") {
 			hasPermission = true
 			c.Next()
 			return

@@ -58,6 +58,11 @@ func concreteRouter(rootRouter *gin.RouterGroup) {
 		v2.GET("/submit", api.GetTestUserData)
 	}
 
+	ws := rootRouter.Group("/ws")
+	{
+		ws.GET("/ping",api.Ping)
+	}
+
 	accounts := gin.Accounts{
 		"admin": "password", //==>{"Authorization":"Basic Zm9vOmJhcg=="}
 		"foo":   "bar",      //==>{"Authorization":"Basic YWRtaW46cGFzc3dvcmQ="}
