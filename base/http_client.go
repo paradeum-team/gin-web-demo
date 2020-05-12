@@ -60,6 +60,8 @@ func getHttpClient() *http.Client {
 		},
 		MaxIdleConns:        20,
 		MaxIdleConnsPerHost: 20,
+		DisableKeepAlives: false, // 关注 http 的连接释放；
+
 	}
 
 	if pldconf.AppConfig.Server.ProxyModel { //本地开发模式，需要使用代理
@@ -144,7 +146,7 @@ func httpExcute(httpMethod string, url string, contentType string, requestBody i
 		req.Header.Set("Content-Type", contentType)
 
 	}
-	req.Header.Set("Connection", "keep-alive")
+	//req.Header.Set("Connection", "keep-alive")
 
 
 	if auth != "" {
