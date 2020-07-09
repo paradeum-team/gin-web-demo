@@ -61,7 +61,7 @@ func getHttpClient() *http.Client {
 		},
 		MaxIdleConns:        20,
 		MaxIdleConnsPerHost: 20,
-		DisableKeepAlives:   false, // 关注 http 的连接释放；
+		DisableKeepAlives:   true, //禁用： 关注 http 的连接释放；
 	}
 
 	if pldconf.AppConfig.Server.ProxyModel { //本地开发模式，需要使用代理
