@@ -24,5 +24,6 @@
 [swagger api具体使用 ](https://github.com/swaggo/swag)
 
 
-
+## 性能优化工具 pprof
+[Golang使用pprof进行性能优化](./pprof.md)
 

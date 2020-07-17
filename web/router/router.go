@@ -9,6 +9,7 @@ import (
 	"github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
 	"strings"
+	"github.com/gin-contrib/pprof"
 )
 
 /**
@@ -25,7 +26,7 @@ func Configure(r *bootstrap.Bootstrapper) {
 		prefix = contextPath
 	}
 	rootRouter := r.Group(prefix) //设置访问的根目录
-
+	pprof.Register(r.Engine)//性能测试工具
 	//call concrete route
 	concreteRouter(rootRouter)
 
