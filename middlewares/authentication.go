@@ -16,8 +16,13 @@ import (
 func Authentication() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		authorization := c.GetHeader("authorization")
-		router := c.ResourcePath
+		//router := c.ResourcePath //1.4.2 自定义的gin 版本
 		uri := c.Request.RequestURI
+		url := c.Request.URL.Path
+		for _, p := range c.Params {//变种替换，不依赖 版本
+			url = strings.Replace(url, p.Value, fmt.Sprintf(":%s", p.Key), 1)
+		}
+		router := url
 		method := c.Request.Method
 		fmt.Printf("authorization=%v \n", authorization)
 
@@ -27,7 +32,7 @@ func Authentication() gin.HandlerFunc {
 
 		hasPermission := false
 		//把不需要验证的，都过滤掉。
-		if strings.Contains(uri, "/api/")||strings.Contains(router, "/api:any")  || !strings.HasPrefix(router, "/dsp") || strings.Contains(router, "/v1/login")|| strings.Contains(router, "/ws/ping") {
+		if strings.Contains(uri, "/api/") || strings.Contains(router, "/api:any") || !strings.HasPrefix(router, "/dsp") || strings.Contains(router, "/v1/login") || strings.Contains(router, "/ws/ping") {
 			hasPermission = true
 			c.Next()
 			return
