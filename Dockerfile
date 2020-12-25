@@ -1,5 +1,7 @@
-FROM alpine:3.9
-COPY ./bin/gin-web-demo .
-COPY ./application.yaml .
+FROM centos:7
+COPY ./bin/gin-web-demo /data/
+COPY ./application.yaml /data/
 EXPOSE 8188
-ENTRYPOINT ["/gin-web-demo"]
+WORKDIR /data
+
+CMD ["./gin-web-demo"]
