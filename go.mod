@@ -6,7 +6,7 @@ require (
 	github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc
 	github.com/flyleft/gprofile v0.0.0-20190121091042-4c613f874133
 	github.com/gin-contrib/pprof v1.3.0
-	github.com/gin-gonic/gin v1.6.2
+	github.com/gin-gonic/gin v1.7.0
 	github.com/go-resty/resty v0.0.0-20190619084753-e284be3e6edc
 	github.com/gorilla/websocket v1.4.2
 	github.com/kataras/golog v0.0.0-20180321173939-03be10146386
